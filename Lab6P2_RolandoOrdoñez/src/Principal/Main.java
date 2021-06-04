@@ -5,6 +5,9 @@
  */
 package Principal;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rolando
@@ -28,12 +31,113 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jd_admin = new javax.swing.JDialog();
+        jd_docente = new javax.swing.JDialog();
+        jd_alumno = new javax.swing.JDialog();
+        Titulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jt_usuario = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jp_password = new javax.swing.JPasswordField();
+        jb_ingresar = new javax.swing.JButton();
+        RB_admin = new javax.swing.JRadioButton();
+        RB_docente = new javax.swing.JRadioButton();
+        RB_alumno = new javax.swing.JRadioButton();
         Fondo = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jd_adminLayout = new javax.swing.GroupLayout(jd_admin.getContentPane());
+        jd_admin.getContentPane().setLayout(jd_adminLayout);
+        jd_adminLayout.setHorizontalGroup(
+            jd_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_adminLayout.setVerticalGroup(
+            jd_adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_docenteLayout = new javax.swing.GroupLayout(jd_docente.getContentPane());
+        jd_docente.getContentPane().setLayout(jd_docenteLayout);
+        jd_docenteLayout.setHorizontalGroup(
+            jd_docenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_docenteLayout.setVerticalGroup(
+            jd_docenteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jd_alumnoLayout = new javax.swing.GroupLayout(jd_alumno.getContentPane());
+        jd_alumno.getContentPane().setLayout(jd_alumnoLayout);
+        jd_alumnoLayout.setHorizontalGroup(
+            jd_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_alumnoLayout.setVerticalGroup(
+            jd_alumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setPreferredSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Titulo.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(0, 0, 153));
+        Titulo.setText("Ingresar al Sistema");
+        getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1.setText("Usuario:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+
+        jt_usuario.setBackground(new java.awt.Color(0, 0, 153));
+        jt_usuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jt_usuario.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jt_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 220, -1));
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setText("Contraseña:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+
+        jp_password.setBackground(new java.awt.Color(0, 0, 153));
+        jp_password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jp_password.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jp_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 220, -1));
+
+        jb_ingresar.setBackground(new java.awt.Color(0, 0, 153));
+        jb_ingresar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jb_ingresar.setForeground(new java.awt.Color(255, 255, 255));
+        jb_ingresar.setText("Ingresar");
+        jb_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ingresarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jb_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
+
+        buttonGroup1.add(RB_admin);
+        RB_admin.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        RB_admin.setForeground(new java.awt.Color(0, 0, 153));
+        RB_admin.setSelected(true);
+        RB_admin.setText("Administrador");
+        getContentPane().add(RB_admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
+
+        buttonGroup1.add(RB_docente);
+        RB_docente.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        RB_docente.setForeground(new java.awt.Color(0, 0, 153));
+        RB_docente.setText("Docente");
+        getContentPane().add(RB_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, -1, -1));
+
+        buttonGroup1.add(RB_alumno);
+        RB_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        RB_alumno.setForeground(new java.awt.Color(0, 0, 153));
+        RB_alumno.setText("alumno");
+        getContentPane().add(RB_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/fondo_celeste.jpg"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
@@ -41,6 +145,74 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jb_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMouseClicked
+        // TODO add your handling code here:
+        if (RB_admin.isSelected()){
+            String a = jt_usuario.getText();
+            String b = jp_password.getText();
+            if (a.equals("admin")&&b.equals("1235")){
+                //llamar metodo
+            }
+        }
+        if (RB_docente.isSelected()){
+            String a = jt_usuario.getText();
+            String b = jp_password.getText();
+            boolean centinela = false;
+            for (int i = 0; i < docentes.size(); i++) {
+                String u = docentes.get(i).getUsuario();
+                String p = docentes.get(i).getPassword();
+                if (u.equals(a)&&p.equals(b)){
+                    centinela = true;
+                }
+            }
+            if (centinela==true){
+                //lamar metodo
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "usuario/contraseña incorrectos");
+            }
+        }
+        if (RB_alumno.isSelected()){
+            String a = jt_usuario.getText();
+            String b = jp_password.getText();
+            boolean centinela = false;
+            for (int i = 0; i < docentes.size(); i++) {
+                String u = docentes.get(i).getUsuario();
+                String p = docentes.get(i).getPassword();
+                if (u.equals(a)&&p.equals(b)){
+                    centinela = true;
+                }
+            }
+            if (centinela==true){
+                //lamar metodo
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "usuario/contraseña incorrectos");
+            }
+        }
+    }//GEN-LAST:event_jb_ingresarMouseClicked
+
+    public void abrirAdmin(){
+        jd_admin.setModal(true);
+        jd_admin.pack();
+        jd_admin.setLocationRelativeTo(this);
+        jd_admin.setVisible(true);
+    }
+    
+    public void abrirDocente(){
+        jd_docente.setModal(true);
+        jd_docente.pack();
+        jd_docente.setLocationRelativeTo(this);
+        jd_docente.setVisible(true);
+    }
+    
+    public void abrirAlumno(){
+        jd_alumno.setModal(true);
+        jd_alumno.pack();
+        jd_alumno.setLocationRelativeTo(this);
+        jd_alumno.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -76,7 +248,24 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
+    ArrayList<docente> docentes = new ArrayList();
+    ArrayList<alumno> alumnos = new ArrayList();
+    proyecto proyecto_creado;
+    int posicion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JRadioButton RB_admin;
+    private javax.swing.JRadioButton RB_alumno;
+    private javax.swing.JRadioButton RB_docente;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jb_ingresar;
+    private javax.swing.JDialog jd_admin;
+    private javax.swing.JDialog jd_alumno;
+    private javax.swing.JDialog jd_docente;
+    private javax.swing.JPasswordField jp_password;
+    private javax.swing.JTextField jt_usuario;
     // End of variables declaration//GEN-END:variables
 }

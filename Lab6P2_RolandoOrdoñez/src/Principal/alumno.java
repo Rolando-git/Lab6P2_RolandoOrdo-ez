@@ -4,6 +4,8 @@ public class alumno {
 
     private String nombre;
     private String apellido;
+    private String usuario;
+    private String password;
     private String registro;
     private String ID;
     private String carrera;
@@ -14,9 +16,11 @@ public class alumno {
     public alumno() {
     }
 
-    public alumno(String nombre, String apellido, String registro, String ID, String carrera, int anio, double promedio, String facultad) {
+    public alumno(String nombre, String apellido, String usuario, String password, String registro, String ID, String carrera, int anio, double promedio, String facultad) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.usuario = usuario;
+        this.password = password;
         this.registro = registro;
         this.ID = ID;
         this.carrera = carrera;
@@ -39,6 +43,22 @@ public class alumno {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRegistro() {

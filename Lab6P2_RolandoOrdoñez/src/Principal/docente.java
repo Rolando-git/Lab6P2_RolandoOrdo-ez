@@ -6,6 +6,8 @@ public class docente {
 
     private String nombre;
     private String apellido;
+    private String usuario;
+    private String password;
     private String n_registro;
     private String titulo;
     private String posgrado;
@@ -16,9 +18,11 @@ public class docente {
     public docente() {
     }
 
-    public docente(String nombre, String apellido, String n_registro, String titulo, String posgrado, int impartido_clase, String facultad) {
+    public docente(String nombre, String apellido, String usuario, String password, String n_registro, String titulo, String posgrado, int impartido_clase, String facultad) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.usuario = usuario;
+        this.password = password;
         this.n_registro = n_registro;
         this.titulo = titulo;
         this.posgrado = posgrado;
@@ -40,6 +44,22 @@ public class docente {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getN_registro() {
