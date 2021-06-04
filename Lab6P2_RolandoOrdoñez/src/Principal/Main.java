@@ -5,8 +5,14 @@
  */
 package Principal;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -33,6 +39,8 @@ public class Main extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jd_admin = new javax.swing.JDialog();
+        jb_admin_crearDocente = new javax.swing.JButton();
+        jb_admin_crearAlumno = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jd_docente = new javax.swing.JDialog();
         jd_alumno = new javax.swing.JDialog();
@@ -60,6 +68,32 @@ public class Main extends javax.swing.JFrame {
         jb_agregar_docente = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jd_crear_alumno = new javax.swing.JDialog();
+        jLabel15 = new javax.swing.JLabel();
+        jt_nombre_alumno = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jt_apellido_alumno = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jt_usuario_alumno = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jt_password_alumno = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jt_registro_alumno = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jt_ID_alumno = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jt_carrera_alumno = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        js_anio_alumno = new javax.swing.JSpinner();
+        jLabel23 = new javax.swing.JLabel();
+        js_prom_alumno = new javax.swing.JSpinner();
+        jLabel24 = new javax.swing.JLabel();
+        RB_salud_alumno = new javax.swing.JRadioButton();
+        RB_ingenieria_alumno = new javax.swing.JRadioButton();
+        RB_licenciatura_alumno = new javax.swing.JRadioButton();
+        jb_agregar_alumno = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         Titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -73,6 +107,26 @@ public class Main extends javax.swing.JFrame {
 
         jd_admin.setPreferredSize(new java.awt.Dimension(800, 500));
         jd_admin.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jb_admin_crearDocente.setBackground(new java.awt.Color(255, 255, 0));
+        jb_admin_crearDocente.setForeground(new java.awt.Color(0, 0, 0));
+        jb_admin_crearDocente.setText("Agregar Docente");
+        jb_admin_crearDocente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_admin_crearDocenteMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_admin_crearDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        jb_admin_crearAlumno.setBackground(new java.awt.Color(255, 255, 0));
+        jb_admin_crearAlumno.setForeground(new java.awt.Color(0, 0, 0));
+        jb_admin_crearAlumno.setText("Crear Alumno");
+        jb_admin_crearAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_admin_crearAlumnoMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_admin_crearAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/color_verde.jpg"))); // NOI18N
         jd_admin.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
@@ -202,10 +256,134 @@ public class Main extends javax.swing.JFrame {
         jb_agregar_docente.setBackground(new java.awt.Color(255, 255, 0));
         jb_agregar_docente.setForeground(new java.awt.Color(0, 0, 0));
         jb_agregar_docente.setText("Agregar");
+        jb_agregar_docente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregar_docenteMouseClicked(evt);
+            }
+        });
         jd_crear_docente.getContentPane().add(jb_agregar_docente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
         jd_crear_docente.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+
+        jd_crear_alumno.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel15.setText("Nombre:");
+        jd_crear_alumno.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+
+        jt_nombre_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_nombre_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_nombre_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_nombre_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 190, -1));
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel16.setText("Apellido:");
+        jd_crear_alumno.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+
+        jt_apellido_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_apellido_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_apellido_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_apellido_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 190, -1));
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel17.setText("Usuario:");
+        jd_crear_alumno.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+
+        jt_usuario_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_usuario_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_usuario_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_usuario_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 190, -1));
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel18.setText("Password:");
+        jd_crear_alumno.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        jt_password_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_password_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_password_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_password_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 190, -1));
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel19.setText("N. de registro:");
+        jd_crear_alumno.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        jt_registro_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_registro_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_registro_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_registro_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 190, -1));
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel20.setText("ID:");
+        jd_crear_alumno.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+
+        jt_ID_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_ID_alumno.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_ID_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_ID_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 190, -1));
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel21.setText("Carrera:");
+        jd_crear_alumno.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
+
+        jt_carrera_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jt_carrera_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_alumno.getContentPane().add(jt_carrera_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 190, -1));
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel22.setText("Año de la carrera:");
+        jd_crear_alumno.getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+
+        js_anio_alumno.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        jd_crear_alumno.getContentPane().add(js_anio_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel23.setText("Promedio:");
+        jd_crear_alumno.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, -1, -1));
+
+        js_prom_alumno.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 0.0d, 0.1d));
+        jd_crear_alumno.getContentPane().add(js_prom_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel24.setText("Facultad:");
+        jd_crear_alumno.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
+
+        buttonGroup3.add(RB_salud_alumno);
+        RB_salud_alumno.setForeground(new java.awt.Color(255, 255, 0));
+        RB_salud_alumno.setSelected(true);
+        RB_salud_alumno.setText("Salud");
+        jd_crear_alumno.getContentPane().add(RB_salud_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+
+        RB_ingenieria_alumno.setForeground(new java.awt.Color(255, 255, 0));
+        RB_ingenieria_alumno.setText("Ingenieria");
+        jd_crear_alumno.getContentPane().add(RB_ingenieria_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
+
+        RB_licenciatura_alumno.setForeground(new java.awt.Color(255, 255, 0));
+        RB_licenciatura_alumno.setText("Licenciatura");
+        jd_crear_alumno.getContentPane().add(RB_licenciatura_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 170, -1, -1));
+
+        jb_agregar_alumno.setBackground(new java.awt.Color(255, 255, 0));
+        jb_agregar_alumno.setForeground(new java.awt.Color(0, 0, 0));
+        jb_agregar_alumno.setText("Agregar");
+        jb_agregar_alumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregar_alumnoMouseClicked(evt);
+            }
+        });
+        jd_crear_alumno.getContentPane().add(jb_agregar_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
+        jd_crear_alumno.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -324,6 +502,32 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_ingresarMouseClicked
 
+    private void jb_agregar_docenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregar_docenteMouseClicked
+        // TODO add your handling code here:
+        crearDocente();
+    }//GEN-LAST:event_jb_agregar_docenteMouseClicked
+
+    private void jb_admin_crearDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_admin_crearDocenteMouseClicked
+        // TODO add your handling code here:
+        jd_crear_docente.setModal(true);
+        jd_crear_docente.pack();
+        jd_crear_docente.setLocationRelativeTo(this);
+        jd_crear_docente.setVisible(true);
+    }//GEN-LAST:event_jb_admin_crearDocenteMouseClicked
+
+    private void jb_agregar_alumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregar_alumnoMouseClicked
+        // TODO add your handling code here:
+        crearAlumno();
+    }//GEN-LAST:event_jb_agregar_alumnoMouseClicked
+
+    private void jb_admin_crearAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_admin_crearAlumnoMouseClicked
+        // TODO add your handling code here:
+        jd_crear_alumno.setModal(true);
+        jd_crear_alumno.pack();
+        jd_crear_alumno.setLocationRelativeTo(this);
+        jd_crear_alumno.setVisible(true);
+    }//GEN-LAST:event_jb_admin_crearAlumnoMouseClicked
+
     public void abrirAdmin(){
         jd_admin.setModal(true);
         jd_admin.pack();
@@ -364,6 +568,104 @@ public class Main extends javax.swing.JFrame {
             D.setFacultad("ingenieria");
         }
         docentes.add(D);
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(jd_crear_docente);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion==JFileChooser.APPROVE_OPTION){
+            try{
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos de texto")){
+                    fichero = new File(jfc.getSelectedFile().getPath()+".txt");
+                }
+                else{
+                    fichero = jfc.getSelectedFile();
+                }
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(D.toString());
+                bw.flush();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                bw.close();
+                fw.close();
+            }
+            catch (IOException ex){
+                
+            }
+        }
+        jt_nombre_docente.setText("");
+        jt_apellido_docente.setText("");
+        jt_usuario_docente.setText("");
+        jt_password_docente.setText("");
+        jt_registro_docente.setText("");
+        jt_titulo_docente.setText("");
+    }
+    
+    public void crearAlumno(){
+        alumno A = new alumno();
+        A.setNombre(jt_nombre_alumno.getText());
+        A.setApellido(jt_apellido_alumno.getText());
+        A.setUsuario(jt_usuario_alumno.getText());
+        A.setPassword(jt_password_alumno.getText());
+        A.setRegistro(jt_registro_alumno.getText());
+        A.setID(jt_ID_alumno.getText());
+        A.setCarrera(jt_carrera_alumno.getText());
+        A.setAnio((Integer)js_anio_alumno.getValue());
+        A.setPromedio((Double)js_prom_alumno.getValue());
+        if (RB_salud.isSelected()){
+            A.setFacultad("salud");
+        }
+        if (RB_ingenieria_alumno.isSelected()){
+            A.setFacultad("ingenieria");
+        }
+        if (RB_licenciatura_alumno.isSelected()){
+            A.setFacultad("licenciatura");
+        }
+        alumnos.add(A);
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(jd_crear_docente);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion==JFileChooser.APPROVE_OPTION){
+            try{
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos de texto")){
+                    fichero = new File(jfc.getSelectedFile().getPath()+".txt");
+                }
+                else{
+                    fichero = jfc.getSelectedFile();
+                }
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(A.toString());
+                bw.flush();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                bw.close();
+                fw.close();
+            }
+            catch (IOException ex){
+                
+            }
+        }
+        jt_nombre_alumno.setText("");
+        jt_apellido_alumno.setText("");
+        jt_usuario_alumno.setText("");
+        jt_password_alumno.setText("");
+        jt_registro_alumno.setText("");
+        jt_ID_alumno.setText("");
+        jt_carrera_alumno.setText("");
     }
     
     /**
@@ -411,17 +713,32 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton RB_admin;
     private javax.swing.JRadioButton RB_alumno;
     private javax.swing.JRadioButton RB_docente;
+    private javax.swing.JRadioButton RB_ingenieria_alumno;
     private javax.swing.JRadioButton RB_licenciatura;
+    private javax.swing.JRadioButton RB_licenciatura_alumno;
     private javax.swing.JRadioButton RB_salud;
+    private javax.swing.JRadioButton RB_salud_alumno;
     private javax.swing.JLabel Titulo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -429,21 +746,34 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jb_admin_crearAlumno;
+    private javax.swing.JButton jb_admin_crearDocente;
+    private javax.swing.JButton jb_agregar_alumno;
     private javax.swing.JButton jb_agregar_docente;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_alumno;
+    private javax.swing.JDialog jd_crear_alumno;
     private javax.swing.JDialog jd_crear_docente;
     private javax.swing.JDialog jd_docente;
     private javax.swing.JPasswordField jp_password;
+    private javax.swing.JSpinner js_anio_alumno;
     private javax.swing.JSpinner js_clases;
+    private javax.swing.JSpinner js_prom_alumno;
+    private javax.swing.JTextField jt_ID_alumno;
+    private javax.swing.JTextField jt_apellido_alumno;
     private javax.swing.JTextField jt_apellido_docente;
+    private javax.swing.JTextField jt_carrera_alumno;
+    private javax.swing.JTextField jt_nombre_alumno;
     private javax.swing.JTextField jt_nombre_docente;
+    private javax.swing.JTextField jt_password_alumno;
     private javax.swing.JTextField jt_password_docente;
     private javax.swing.JTextField jt_posgrado;
+    private javax.swing.JTextField jt_registro_alumno;
     private javax.swing.JTextField jt_registro_docente;
     private javax.swing.JTextField jt_titulo_docente;
     private javax.swing.JTextField jt_usuario;
+    private javax.swing.JTextField jt_usuario_alumno;
     private javax.swing.JTextField jt_usuario_docente;
     // End of variables declaration//GEN-END:variables
 }

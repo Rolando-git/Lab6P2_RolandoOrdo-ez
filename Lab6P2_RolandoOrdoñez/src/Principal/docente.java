@@ -112,7 +112,7 @@ public class docente {
 
     @Override
     public String toString() {
-        return nombre + apellido;
+        return "nombre=" + nombre + "\n" + ", apellido=" + apellido + "\n" + ", usuario=" + usuario + "\n" + ", password=" + password + "\n" + ", n_registro=" + n_registro + "\n" + ", titulo=" + titulo + "\n" + ", posgrado=" + posgrado + "\n" + ", impartido_clase=" + impartido_clase + "\n" + ", facultad=" + facultad + "\n" + ", proyectos=" + "\n" + proyectos + "\n";
     }
 
 }
