@@ -1,12 +1,11 @@
 package Principal;
 
-import java.io.File;
 import java.util.Date;
 
 public class proyecto {
 
     private String titulo;
-    private File descripcion;
+    private String descripcion;
     private int puntuacion;
     private int dificultad;
     private String duracion;
@@ -16,7 +15,7 @@ public class proyecto {
     public proyecto() {
     }
 
-    public proyecto(String titulo, File descripcion, int puntuacion, int dificultad, String duracion, int participantes, Date entrega) {
+    public proyecto(String titulo, String descripcion, int puntuacion, int dificultad, String duracion, int participantes, Date entrega) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.puntuacion = puntuacion;
@@ -34,11 +33,11 @@ public class proyecto {
         this.titulo = titulo;
     }
 
-    public File getDescripcion() {
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(File descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 

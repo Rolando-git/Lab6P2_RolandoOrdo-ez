@@ -41,6 +41,7 @@ public class Main extends javax.swing.JFrame {
         jd_admin = new javax.swing.JDialog();
         jb_admin_crearDocente = new javax.swing.JButton();
         jb_admin_crearAlumno = new javax.swing.JButton();
+        jb_admin_crearProyecto = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jd_docente = new javax.swing.JDialog();
         jd_alumno = new javax.swing.JDialog();
@@ -94,6 +95,24 @@ public class Main extends javax.swing.JFrame {
         jb_agregar_alumno = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        jd_crear_proyecto = new javax.swing.JDialog();
+        jLabel26 = new javax.swing.JLabel();
+        jt_titulo_proyecto = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        ScrollPane1 = new javax.swing.JScrollPane();
+        jt_descripcion_proyecto = new javax.swing.JTextArea();
+        jLabel28 = new javax.swing.JLabel();
+        js_punc_proyecto = new javax.swing.JSpinner();
+        jLabel29 = new javax.swing.JLabel();
+        js_dificultad_proyecto = new javax.swing.JSpinner();
+        jLabel30 = new javax.swing.JLabel();
+        jt_duracion_proyecto = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        js_participantes_proyecto = new javax.swing.JSpinner();
+        jLabel32 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jb_agregar_proyecto = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -127,6 +146,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jd_admin.getContentPane().add(jb_admin_crearAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+
+        jb_admin_crearProyecto.setBackground(new java.awt.Color(255, 255, 0));
+        jb_admin_crearProyecto.setForeground(new java.awt.Color(0, 0, 0));
+        jb_admin_crearProyecto.setText("Crear Proyecto");
+        jb_admin_crearProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_admin_crearProyectoMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_admin_crearProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/color_verde.jpg"))); // NOI18N
         jd_admin.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
@@ -385,6 +414,83 @@ public class Main extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
         jd_crear_alumno.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
+        jd_crear_proyecto.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel26.setText("Titulo:");
+        jd_crear_proyecto.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        jt_titulo_proyecto.setBackground(new java.awt.Color(255, 255, 0));
+        jt_titulo_proyecto.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_titulo_proyecto.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_proyecto.getContentPane().add(jt_titulo_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 210, -1));
+
+        jLabel27.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel27.setText("Descripcion:");
+        jd_crear_proyecto.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        jt_descripcion_proyecto.setBackground(new java.awt.Color(255, 255, 0));
+        jt_descripcion_proyecto.setColumns(20);
+        jt_descripcion_proyecto.setForeground(new java.awt.Color(0, 0, 0));
+        jt_descripcion_proyecto.setRows(5);
+        ScrollPane1.setViewportView(jt_descripcion_proyecto);
+
+        jd_crear_proyecto.getContentPane().add(ScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 230, 110));
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel28.setText("Puntuacion:");
+        jd_crear_proyecto.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        js_punc_proyecto.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        jd_crear_proyecto.getContentPane().add(js_punc_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel29.setText("Dificultad:");
+        jd_crear_proyecto.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        js_dificultad_proyecto.setModel(new javax.swing.SpinnerNumberModel(1, 0, 5, 1));
+        jd_crear_proyecto.getContentPane().add(js_dificultad_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel30.setText("Duracion:");
+        jd_crear_proyecto.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+
+        jt_duracion_proyecto.setBackground(new java.awt.Color(255, 255, 0));
+        jt_duracion_proyecto.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_duracion_proyecto.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_proyecto.getContentPane().add(jt_duracion_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 190, -1));
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel31.setText("Participantes:");
+        jd_crear_proyecto.getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        js_participantes_proyecto.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        jd_crear_proyecto.getContentPane().add(js_participantes_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel32.setText("Fecha de entrega:");
+        jd_crear_proyecto.getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+        jd_crear_proyecto.getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, -1));
+
+        jb_agregar_proyecto.setBackground(new java.awt.Color(255, 255, 0));
+        jb_agregar_proyecto.setForeground(new java.awt.Color(0, 0, 0));
+        jb_agregar_proyecto.setText("Agregar");
+        jb_agregar_proyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregar_proyectoMouseClicked(evt);
+            }
+        });
+        jd_crear_proyecto.getContentPane().add(jb_agregar_proyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, -1, -1));
+
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
+        jd_crear_proyecto.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -511,7 +617,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         jd_crear_docente.setModal(true);
         jd_crear_docente.pack();
-        jd_crear_docente.setLocationRelativeTo(this);
+        jd_crear_docente.setLocationRelativeTo(jd_admin);
         jd_crear_docente.setVisible(true);
     }//GEN-LAST:event_jb_admin_crearDocenteMouseClicked
 
@@ -524,9 +630,22 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         jd_crear_alumno.setModal(true);
         jd_crear_alumno.pack();
-        jd_crear_alumno.setLocationRelativeTo(this);
+        jd_crear_alumno.setLocationRelativeTo(jd_admin);
         jd_crear_alumno.setVisible(true);
     }//GEN-LAST:event_jb_admin_crearAlumnoMouseClicked
+
+    private void jb_admin_crearProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_admin_crearProyectoMouseClicked
+        // TODO add your handling code here:
+        jd_crear_proyecto.setModal(true);
+        jd_crear_proyecto.pack();
+        jd_crear_proyecto.setLocationRelativeTo(jd_admin);
+        jd_crear_proyecto.setVisible(true);
+    }//GEN-LAST:event_jb_admin_crearProyectoMouseClicked
+
+    private void jb_agregar_proyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregar_proyectoMouseClicked
+        // TODO add your handling code here:
+        crearProyecto();
+    }//GEN-LAST:event_jb_agregar_proyectoMouseClicked
 
     public void abrirAdmin(){
         jd_admin.setModal(true);
@@ -668,6 +787,51 @@ public class Main extends javax.swing.JFrame {
         jt_carrera_alumno.setText("");
     }
     
+    public void crearProyecto(){
+        proyecto P = new proyecto();
+        P.setTitulo(jt_titulo_proyecto.getText());
+        P.setDescripcion(jt_descripcion_proyecto.getText());
+        P.setPuntuacion((Integer)js_punc_proyecto.getValue());
+        P.setDificultad((Integer)js_dificultad_proyecto.getValue());
+        P.setDuracion(jt_duracion_proyecto.getText());
+        P.setParticipantes((Integer)js_participantes_proyecto.getValue());
+        P.setEntrega(jDateChooser1.getDate());
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(jd_crear_docente);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion==JFileChooser.APPROVE_OPTION){
+            try{
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos de texto")){
+                    fichero = new File(jfc.getSelectedFile().getPath()+".txt");
+                }
+                else{
+                    fichero = jfc.getSelectedFile();
+                }
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(P.toString());
+                bw.flush();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                bw.close();
+                fw.close();
+            }
+            catch (IOException ex){
+                
+            }
+        }
+        jt_titulo_proyecto.setText("");
+        jt_descripcion_proyecto.setText("");
+        jt_duracion_proyecto.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -718,10 +882,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton RB_licenciatura_alumno;
     private javax.swing.JRadioButton RB_salud;
     private javax.swing.JRadioButton RB_salud_alumno;
+    private javax.swing.JScrollPane ScrollPane1;
     private javax.swing.JLabel Titulo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -739,7 +905,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -748,22 +922,30 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JButton jb_admin_crearAlumno;
     private javax.swing.JButton jb_admin_crearDocente;
+    private javax.swing.JButton jb_admin_crearProyecto;
     private javax.swing.JButton jb_agregar_alumno;
     private javax.swing.JButton jb_agregar_docente;
+    private javax.swing.JButton jb_agregar_proyecto;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_alumno;
     private javax.swing.JDialog jd_crear_alumno;
     private javax.swing.JDialog jd_crear_docente;
+    private javax.swing.JDialog jd_crear_proyecto;
     private javax.swing.JDialog jd_docente;
     private javax.swing.JPasswordField jp_password;
     private javax.swing.JSpinner js_anio_alumno;
     private javax.swing.JSpinner js_clases;
+    private javax.swing.JSpinner js_dificultad_proyecto;
+    private javax.swing.JSpinner js_participantes_proyecto;
     private javax.swing.JSpinner js_prom_alumno;
+    private javax.swing.JSpinner js_punc_proyecto;
     private javax.swing.JTextField jt_ID_alumno;
     private javax.swing.JTextField jt_apellido_alumno;
     private javax.swing.JTextField jt_apellido_docente;
     private javax.swing.JTextField jt_carrera_alumno;
+    private javax.swing.JTextArea jt_descripcion_proyecto;
+    private javax.swing.JTextField jt_duracion_proyecto;
     private javax.swing.JTextField jt_nombre_alumno;
     private javax.swing.JTextField jt_nombre_docente;
     private javax.swing.JTextField jt_password_alumno;
@@ -772,6 +954,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_registro_alumno;
     private javax.swing.JTextField jt_registro_docente;
     private javax.swing.JTextField jt_titulo_docente;
+    private javax.swing.JTextField jt_titulo_proyecto;
     private javax.swing.JTextField jt_usuario;
     private javax.swing.JTextField jt_usuario_alumno;
     private javax.swing.JTextField jt_usuario_docente;
