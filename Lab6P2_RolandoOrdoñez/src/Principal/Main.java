@@ -5,8 +5,10 @@
  */
 package Principal;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,6 +44,11 @@ public class Main extends javax.swing.JFrame {
         jb_admin_crearDocente = new javax.swing.JButton();
         jb_admin_crearAlumno = new javax.swing.JButton();
         jb_admin_crearProyecto = new javax.swing.JButton();
+        jb_crear_clase = new javax.swing.JButton();
+        jb_admin_editar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jb_guardar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jd_docente = new javax.swing.JDialog();
         jd_alumno = new javax.swing.JDialog();
@@ -113,6 +120,21 @@ public class Main extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jb_agregar_proyecto = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
+        jd_crear_clase = new javax.swing.JDialog();
+        jLabel34 = new javax.swing.JLabel();
+        jt_nombre_clase = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jt_seccion_clase = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jt_codigo_clase = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        jt_ccarrera_clase = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        js_maxima_clase = new javax.swing.JSpinner();
+        jLabel39 = new javax.swing.JLabel();
+        jt_numero_clase = new javax.swing.JTextField();
+        jb_agregarClase = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
         Titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jt_usuario = new javax.swing.JTextField();
@@ -156,6 +178,46 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jd_admin.getContentPane().add(jb_admin_crearProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+
+        jb_crear_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jb_crear_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jb_crear_clase.setText("Crear Clase");
+        jb_crear_clase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crear_claseMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_crear_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
+
+        jb_admin_editar.setBackground(new java.awt.Color(255, 255, 0));
+        jb_admin_editar.setForeground(new java.awt.Color(0, 0, 0));
+        jb_admin_editar.setText("Editar");
+        jb_admin_editar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_admin_editarMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_admin_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 100, 60));
+
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 0));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jd_admin.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 280, 220));
+
+        jb_guardar.setBackground(new java.awt.Color(255, 255, 0));
+        jb_guardar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jb_guardar.setForeground(new java.awt.Color(0, 0, 0));
+        jb_guardar.setText("Guaradar cambios");
+        jb_guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_guardarMouseClicked(evt);
+            }
+        });
+        jd_admin.getContentPane().add(jb_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 142, 160, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/color_verde.jpg"))); // NOI18N
         jd_admin.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
@@ -491,6 +553,77 @@ public class Main extends javax.swing.JFrame {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
         jd_crear_proyecto.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
+        jd_crear_clase.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel34.setText("Nombre:");
+        jd_crear_clase.getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        jt_nombre_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jt_nombre_clase.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_nombre_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_clase.getContentPane().add(jt_nombre_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 210, -1));
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel35.setText("Seccion:");
+        jd_crear_clase.getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        jt_seccion_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jt_seccion_clase.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_seccion_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_clase.getContentPane().add(jt_seccion_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 210, -1));
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel36.setText("Codigo:");
+        jd_crear_clase.getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+
+        jt_codigo_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jt_codigo_clase.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_codigo_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_clase.getContentPane().add(jt_codigo_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 210, -1));
+
+        jLabel37.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel37.setText("codigo carrera.");
+        jd_crear_clase.getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        jt_ccarrera_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jt_ccarrera_clase.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_ccarrera_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_clase.getContentPane().add(jt_ccarrera_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 200, -1));
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel38.setText("Capacidad Maxima:");
+        jd_crear_clase.getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        js_maxima_clase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 30, 1));
+        jd_crear_clase.getContentPane().add(js_maxima_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel39.setText("Numero de la clase:");
+        jd_crear_clase.getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+
+        jt_numero_clase.setBackground(new java.awt.Color(255, 255, 0));
+        jt_numero_clase.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jt_numero_clase.setForeground(new java.awt.Color(0, 0, 0));
+        jd_crear_clase.getContentPane().add(jt_numero_clase, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 220, -1));
+
+        jb_agregarClase.setText("Agregar");
+        jb_agregarClase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarClaseMouseClicked(evt);
+            }
+        });
+        jd_crear_clase.getContentPane().add(jb_agregarClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/rojo.jpg"))); // NOI18N
+        jd_crear_clase.getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -646,6 +779,79 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         crearProyecto();
     }//GEN-LAST:event_jb_agregar_proyectoMouseClicked
+
+    private void jb_crear_claseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crear_claseMouseClicked
+        // TODO add your handling code here:
+        jd_crear_clase.setModal(true);
+        jd_crear_clase.pack();
+        jd_crear_clase.setLocationRelativeTo(jd_admin);
+        jd_crear_clase.setVisible(true);
+    }//GEN-LAST:event_jb_crear_claseMouseClicked
+
+    private void jb_agregarClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarClaseMouseClicked
+        // TODO add your handling code here:
+        crearClase();
+    }//GEN-LAST:event_jb_agregarClaseMouseClicked
+
+    private void jb_admin_editarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_admin_editarMouseClicked
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        jfc.showOpenDialog(jd_admin);
+        File archivo = null;
+        FileReader canal = null;
+        BufferedReader ram = null;
+        String m="";
+        try {
+            archivo = new File(jfc.getSelectedFile().getPath());
+            canal = new FileReader(archivo);
+            ram = new BufferedReader(canal);
+            String linea;
+            while ((linea=ram.readLine())!=null){
+                m += linea;
+            }
+            jTextArea1.setText(m);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jb_admin_editarMouseClicked
+
+    private void jb_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarMouseClicked
+        // TODO add your handling code here:
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(jd_crear_docente);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion==JFileChooser.APPROVE_OPTION){
+            try{
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos de texto")){
+                    fichero = new File(jfc.getSelectedFile().getPath()+".txt");
+                }
+                else{
+                    fichero = jfc.getSelectedFile();
+                }
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(jTextArea1.getText());
+                bw.flush();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                bw.close();
+                fw.close();
+            }
+            catch (IOException ex){
+                
+            }
+        }
+    }//GEN-LAST:event_jb_guardarMouseClicked
 
     public void abrirAdmin(){
         jd_admin.setModal(true);
@@ -832,6 +1038,52 @@ public class Main extends javax.swing.JFrame {
         jt_duracion_proyecto.setText("");
     }
     
+    public void crearClase(){
+        clase C = new clase();
+        C.setNombre(jt_nombre_clase.getText());
+        C.setSeccion(jt_seccion_clase.getText());
+        C.setCodigo(jt_codigo_clase.getText());
+        C.setC_carrera(jt_ccarrera_clase.getText());
+        C.setMaxima((Integer)js_maxima_clase.getValue());
+        C.setNumero(Integer.parseInt(jt_numero_clase.getText()));
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto","txt");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showSaveDialog(jd_crear_docente);
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        if (seleccion==JFileChooser.APPROVE_OPTION){
+            try{
+                File fichero = null;
+                if (jfc.getFileFilter().getDescription().equals("Archivos de texto")){
+                    fichero = new File(jfc.getSelectedFile().getPath()+".txt");
+                }
+                else{
+                    fichero = jfc.getSelectedFile();
+                }
+                fw = new FileWriter(fichero);
+                bw = new BufferedWriter(fw);
+                bw.write(C.toString());
+                bw.flush();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            try{
+                bw.close();
+                fw.close();
+            }
+            catch (IOException ex){
+                
+            }
+        }
+        jt_nombre_clase.setText("");
+        jt_seccion_clase.setText("");
+        jt_codigo_clase.setText("");
+        jt_ccarrera_clase.setText("");
+        jt_numero_clase.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -914,22 +1166,36 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton jb_admin_crearAlumno;
     private javax.swing.JButton jb_admin_crearDocente;
     private javax.swing.JButton jb_admin_crearProyecto;
+    private javax.swing.JButton jb_admin_editar;
+    private javax.swing.JButton jb_agregarClase;
     private javax.swing.JButton jb_agregar_alumno;
     private javax.swing.JButton jb_agregar_docente;
     private javax.swing.JButton jb_agregar_proyecto;
+    private javax.swing.JButton jb_crear_clase;
+    private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_ingresar;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_alumno;
     private javax.swing.JDialog jd_crear_alumno;
+    private javax.swing.JDialog jd_crear_clase;
     private javax.swing.JDialog jd_crear_docente;
     private javax.swing.JDialog jd_crear_proyecto;
     private javax.swing.JDialog jd_docente;
@@ -937,6 +1203,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner js_anio_alumno;
     private javax.swing.JSpinner js_clases;
     private javax.swing.JSpinner js_dificultad_proyecto;
+    private javax.swing.JSpinner js_maxima_clase;
     private javax.swing.JSpinner js_participantes_proyecto;
     private javax.swing.JSpinner js_prom_alumno;
     private javax.swing.JSpinner js_punc_proyecto;
@@ -944,15 +1211,20 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_apellido_alumno;
     private javax.swing.JTextField jt_apellido_docente;
     private javax.swing.JTextField jt_carrera_alumno;
+    private javax.swing.JTextField jt_ccarrera_clase;
+    private javax.swing.JTextField jt_codigo_clase;
     private javax.swing.JTextArea jt_descripcion_proyecto;
     private javax.swing.JTextField jt_duracion_proyecto;
     private javax.swing.JTextField jt_nombre_alumno;
+    private javax.swing.JTextField jt_nombre_clase;
     private javax.swing.JTextField jt_nombre_docente;
+    private javax.swing.JTextField jt_numero_clase;
     private javax.swing.JTextField jt_password_alumno;
     private javax.swing.JTextField jt_password_docente;
     private javax.swing.JTextField jt_posgrado;
     private javax.swing.JTextField jt_registro_alumno;
     private javax.swing.JTextField jt_registro_docente;
+    private javax.swing.JTextField jt_seccion_clase;
     private javax.swing.JTextField jt_titulo_docente;
     private javax.swing.JTextField jt_titulo_proyecto;
     private javax.swing.JTextField jt_usuario;

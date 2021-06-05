@@ -86,18 +86,14 @@ public class clase {
         return alumnos;
     }
 
-    public void setAlumnos(alumno a) throws miException{
-        if (maxima<30){
-            this.alumnos.add(a);
-        }
-        else{
-            throw new miException("El aula ha alcanzado su capacidad maxima");
-        }
+    public void setAlumnos(alumno a) {
+        this.alumnos.add(a);
     }
 
     @Override
     public String toString() {
-        return nombre + ", seccion=" + seccion + ", numero=" + numero;
+        return "clase{" + "nombre=" + nombre + ", seccion=" + seccion + ", codigo=" + codigo + ", c_carrera=" + c_carrera + ", maxima=" + maxima + ", numero=" + numero + ", proyectos=" + proyectos + ", alumnos=" + alumnos + '}';
     }
 
+    
 }
